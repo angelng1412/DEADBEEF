@@ -1,0 +1,23 @@
+Hamburger Kart
+Plan
+
+GOALS (in order)
+
+CORE FUNCTIONALITY
+1. Create a Customer class with variables of priority and generates an order.
+   - can be worked on individuality
+   - prereq
+2. Create a Hamburger class that creates a type of hamburger with its ingredients.
+   - can be worked on individuality
+   - uses a stack as an underlying container
+   - prereq
+3. Driver file (cart) to interact with the user
+   - uses a priorityqueue of customers 
+   - depends on Customer and Hamburger
+   - needs collaboration
+   - a string array for ingredients that the user chooses from
+
+EXTRA FUNCTIONALITIES
+1. Visuals
+2. Different Levels & Difficulties
+3. Customers will give you money for the hamburgers. 
