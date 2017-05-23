@@ -9,6 +9,10 @@ public class Hamburger{
 	_order = new ArrayList();
     }
 
+    public ArrayList<String> getOrder(){
+	return _order; 
+    }
+
     public ArrayList<String> randomOrder(){
 	for (int x = 0; x < (int)(Math.random() * 10); x++){
 	    _order.add(_ingredients[(int)(Math.random() * 13)]);
@@ -22,6 +26,20 @@ public class Hamburger{
 	    retstr += _order.get(x);
 	}
 	return retstr;
+    }
+
+    public boolean isEqual(Burger other){
+	if (getOrder().size() != other.getOrder().size()){
+	    return false; 
+	}
+	else{
+	    for (int i = 0; i < getOrder().size(); i++){
+		if (getOrder().get(i) != other.getOrder().get(i)){
+		    return false;
+		}
+	    }
+	    return true; 
+	}
     }
     
     public static void main(String[] args){
