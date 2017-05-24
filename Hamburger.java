@@ -7,17 +7,17 @@ public class Hamburger{
 
     public Hamburger(){
 	_order = new ArrayList();
+	randomOrder(); 
     }
 
     public ArrayList<String> getOrder(){
 	return _order; 
     }
 
-    public ArrayList<String> randomOrder(){
+    public void randomOrder(){
 	for (int x = 0; x < (int)(Math.random() * 10); x++){
 	    _order.add(_ingredients[(int)(Math.random() * 13)]);
 	}
-	return _order;
     }
 
     public String toString(){
@@ -28,7 +28,7 @@ public class Hamburger{
 	return retstr;
     }
 
-    public boolean isEqual(Burger other){
+    public boolean isEqual(Hamburger other){
 	if (getOrder().size() != other.getOrder().size()){
 	    return false; 
 	}
@@ -44,6 +44,5 @@ public class Hamburger{
     
     public static void main(String[] args){
 	Hamburger bob = new Hamburger();
-	System.out.println(bob.randomOrder());
     }
 }
