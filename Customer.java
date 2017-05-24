@@ -1,17 +1,17 @@
 public class Customer{
-    private Hamburger _burger; 
+    private Hamburger _order = new Hamburger(); 
     private int _priority;
     
     public Customer(Hamburger burger, int priority){
-	_burger = burger; 
+	_order = burger; 
 	_priority = priority; 
     }
 
-    public Hamburger getBurger(){
-	return burger; 
+    public Hamburger getOrder(){
+	return _order; 
     }
 
     public int getPriority(){
-	return priority; 
+	return _priority; 
     }
 }
