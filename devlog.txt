@@ -71,3 +71,29 @@ yyyy-mm-dd
 Adrian :: created devlog.txt
 Angel :: made repo
 Tina :: created plan/20170519.txt
+
+2017-05-23
+--------------------------------------------------------------
+Tina :: worked on flowchart
+Adrian :: worked on flowchart
+Angel :: worked on UML diagrams
+==============================================================
+
+2017-05-24
+--------------------------------------------------------------
+Tina :: started driver class
+Adrian :: fixed flowchart
+Angel :: tinkered with hamburger and customer
+==============================================================
+
+2017-05-25
+--------------------------------------------------------------
+Tina :: updated plan and devlog
+Adrian :: moral support (we really need a third computer)
+Angel :: worker on driver: the start level method
+==============================================================
+
+2017-05-26
+--------------------------------------------------------------
+
+==============================================================
