@@ -1,19 +1,29 @@
 import java.util.*;
 import java.util.PriorityQueue;
+import java.util.Stack;
 
 public class Kart{
 
     private PriorityQueue customers;
-    private ArrayStack burgers;
+    private Hamburger userBurger;
     private int timeForLevel;
-    private int gameStart;
+    private boolean gameStart;
     
     //starts the level 
     public void startLevel(){
 	customers = new PriorityQueue(); 
-    }
+	int x = 5; 
+	while (x > 0){
+	    customers.add(new Customer((int)Math.random()*2)); 
+	    x--; 
+	}
 
-    public void endScreen(){
+	userBurger = new Stack(); 
+	gameStart = true; 
+    }
+       
+
+    /* public void endScreen(){
     }
 
     public Customer nextCustomer(){
@@ -23,7 +33,7 @@ public class Kart{
     }
 
     public int compareOrders(Burger other){
-    }
+    }*/
 
     public static void main (String[] args){
     }
