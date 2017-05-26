@@ -3,13 +3,14 @@ import java.util.*;
 public class Hamburger{
 
     private final String[] _ingredients = {"lettuce", "tomato", "pickle", "ketchup", "cucumber", "mustard", "cheese", "honey mustard", "onion", "mushroom", "patty", "pepper"};
-    private ArrayList<String> _order;
+    private Stack<String> _order;
 
     public Hamburger(){
-	_order = new ArrayList();
+	_order = new Stack();
+	_order.add("bottom bun"); 
     }
 
-    public ArrayList<String> getOrder(){
+    public Stack<String> getOrder(){
 	return _order; 
     }
 
@@ -17,6 +18,7 @@ public class Hamburger{
 	for (int x = 0; x < (int)(Math.random() * 8) + 3; x++){
 	    _order.add(_ingredients[(int)(Math.random() * 12)]);
 	}
+	_order.add("top bun"); 
     }
 
     public String toString(){
