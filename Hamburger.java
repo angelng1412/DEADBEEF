@@ -43,7 +43,7 @@ public class Hamburger{
     
     public static void main(String[] args){
 	Hamburger bob = new Hamburger();
-	//bob.randomOrder();
-        //System.out.println(bob);
+	bob.randomOrder();
+        System.out.println(bob);
     }
 }
