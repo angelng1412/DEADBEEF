@@ -14,8 +14,8 @@ public class Hamburger{
     }
 
     public void randomOrder(){
-	for (int x = 0; x < (int)(Math.random() * 10); x++){
-	    _order.add(_ingredients[(int)(Math.random() * 13)]);
+	for (int x = 0; x < (int)(Math.random() * 8) + 3; x++){
+	    _order.add(_ingredients[(int)(Math.random() * 12)]);
 	}
     }
 
@@ -43,6 +43,7 @@ public class Hamburger{
     
     public static void main(String[] args){
 	Hamburger bob = new Hamburger();
-        //System.out.println(bob);
+	bob.randomOrder();
+        System.out.println(bob);
     }
 }
