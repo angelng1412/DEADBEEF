@@ -1,9 +1,10 @@
 public class Customer implements Comparable{
-    private Hamburger _order = new Hamburger(); 
+    private Hamburger _order; 
     private int _priority;
     
-    public Customer(Hamburger burger, int priority){
-	_order = burger; 
+    public Customer(int priority){
+	_order = new Hamburger();
+	_order.randomOrder(); 
 	_priority = priority; 
     }
 
@@ -15,11 +16,11 @@ public class Customer implements Comparable{
 	return _priority; 
     }
 
-    public int compareTo(Customer other){ 
-	if (this.getPriority() > other.getPriority()){
+    public int compareTo(Object other){ 
+	if (this.getPriority() > ((Customer)other).getPriority()){
 	    return 1;
 	}
-	else if (this.getPriority() < other.getPriority()){
+	else if (this.getPriority() < ((Customer)other).getPriority()){
 	    return -1; 
 	}
 	else{
