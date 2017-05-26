@@ -3,11 +3,15 @@ import java.util.PriorityQueue;
 import java.util.Stack;
 
 public class Kart{
-
+    
     private PriorityQueue customers;
     private Hamburger userBurger;
     private int timeForLevel;
     private boolean gameStart;
+    
+    public PriorityQueue getCustomers(){
+	return customers; 
+    }
     
     //starts the level 
     public void startLevel(){
@@ -18,7 +22,7 @@ public class Kart{
 	    x--; 
 	}
 
-	userBurger = new Stack(); 
+	userBurger = new Hamburger(); 
 	gameStart = true; 
     }
        
@@ -31,10 +35,12 @@ public class Kart{
 
     public void tossOrders(){
     }
-
-    public int compareOrders(Burger other){
+    public int compareOrders(Hamburger other){
     }*/
 
     public static void main (String[] args){
+	Kart tina = new Kart(); 
+	tina.startLevel(); 
+	System.out.println(tina.getCustomers()); 
     }
 }
