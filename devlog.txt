@@ -95,5 +95,5 @@ Angel :: worker on driver: the start level method
 
 2017-05-27
 --------------------------------------------------------------
-Tina :: worked on the driver (nextCustomer(), tossOrders(), compareOrders())
+Tina :: worked on the driver (nextCustomer(), tossOrders(), compareOrders()) and worked on the background for the processing part
 ==============================================================
