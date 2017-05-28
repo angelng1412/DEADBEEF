@@ -4,6 +4,7 @@ public class Hamburger{
 
     private final String[] _ingredients = {"lettuce", "tomato", "pickle", "ketchup", "cucumber", "mustard", "cheese", "honey mustard", "onion", "mushroom", "patty", "pepper"};
     private Stack<String> _order;
+    private int _size;
 
     public Hamburger(){
 	_order = new Stack();
@@ -17,10 +18,14 @@ public class Hamburger{
     public void randomOrder(){
 	for (int x = 0; x < (int)(Math.random() * 8) + 3; x++){
 	    _order.add(_ingredients[(int)(Math.random() * 12)]);
+	    _size++;
 	}
 	_order.add("top bun"); 
     }
 
+    public int size(){
+	return _size;
+    }
     public String toString(){
 	String retstr = "";
 	for (int x = 0; x < _order.size(); x++){

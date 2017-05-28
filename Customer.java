@@ -27,4 +27,10 @@ public class Customer implements Comparable{
 	    return 0; 
 	}
     }
+
+    public String toString(){
+	String retstr = "";
+	retstr += _priority;
+	return retstr;
+    }
 }
