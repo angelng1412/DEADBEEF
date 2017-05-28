@@ -93,7 +93,7 @@ Adrian :: moral support (we really need a third computer)
 Angel :: worker on driver: the start level method
 ==============================================================
 
-2017-05-26
+2017-05-27
 --------------------------------------------------------------
-
+Tina :: worked on the driver (nextCustomer(), tossOrders(), compareOrders())
 ==============================================================
