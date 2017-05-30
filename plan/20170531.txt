@@ -1,0 +1,16 @@
+Hamburger Kart 
+
+Accomplished
+- created the backround for the game
+- created Hamburger class. (working functions)
+- created Customer class. (working functions)
+- completed functions in java driver file
+
+Goals
+- add the graphics behind the java code
+      - make the customers appear in front of the counter with their orders
+      - have the user click on the ingredients and have the ingredients pop up on the counter 
+      - when finished have the user click on a button 
+      - program checks if the orders match when dragged 
+      - customer goes away when satisfied and if not then the burger is trashed
+- add time functionality
