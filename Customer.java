@@ -34,7 +34,8 @@ public class Customer implements Comparable{
 
     public String toString(){
 	String retstr = "";
-	retstr += _priority;
+	retstr += "ORDER: " + _order.toString() + "\n";
+	retstr += "PRIORITY LVL: " + _priority;
 	return retstr;
     }
 }
