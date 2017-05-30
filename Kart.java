@@ -32,9 +32,43 @@ public class Kart{
     }
 
     public Customer nextCustomer(){
-	customers.remove();
-	return customers.peek();	
+	return customers.remove();
     }
+
+    public void makeBurger(){
+	System.out.print("\n1: lettuce\n2: tomato\n3: pickle\n4: ketchup\n5: cucumber\n6: mustard\n7: cheese\n8: onion\n9: mushroom\n10: patty\n11: patty\n12: done")
+	action = Keyboard.readInt()
+	while (true){ 
+	    if (action == 12){
+		userBurger.add("top bun"); 
+		return; 
+	    }
+	    else if (action == 1){ 
+		userBurger.add("lettuce"); 
+	    }
+	    else if (action == 2){ 
+		userBurger.add("tomato"); 
+	    }
+	    else if (action == 3){ 
+		userBurger.add("pickle"); 
+	    }
+	    else if (action == 4){ 
+		userBurger.add("ketchup"); 
+	    }
+	    else if (action == 5){ 
+		userBurger.add("cucumber"); 
+	    }
+	    else if (action == 6){ 
+		userBurger.add("mustard"); 
+	    }
+	    else if (action == 7){ 
+		userBurger.add("cheese"); 
+	    }
+	    else if (action == 8){ 
+		userBurger.add(""); 
+	    }
+	}
+	    
 
     public void tossOrders(){
 	userBurger = new Hamburger();
@@ -58,8 +92,10 @@ public class Kart{
     public static void main (String[] args){
 	Kart tina = new Kart(); 
 	tina.startLevel(); 
-	System.out.println(tina.getCustomers());
-	tina.nextCustomer();
-	System.out.println(tina.getCustomers()); 
+	while (!tina.getCustomers().isEmpty()){
+	    System.out.println("This is your order..."); 
+	    System.out.println(tina.nextCustomer()); 
+	    tina.makeBurger(); 
+	}
     }
 }
