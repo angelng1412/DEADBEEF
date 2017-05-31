@@ -97,3 +97,11 @@ Angel :: worker on driver: the start level method
 --------------------------------------------------------------
 Tina :: worked on the driver (nextCustomer(), tossOrders(), compareOrders()) and worked on the background for the processing part
 ==============================================================
+
+2017-05-30
+--------------------------------------------------------------
+Adrian :: worked on showing customers in processing
+Angel :: added makeBurger() method in driver
+Tina :: worked on adding user interactions with creating the burger
+==============================================================
+
