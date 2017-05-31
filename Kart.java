@@ -1,6 +1,7 @@
 import java.util.*;
 import java.util.PriorityQueue;
 import java.util.Stack;
+import cs1.Keyboard; 
 
 public class Kart{
     
@@ -30,15 +31,21 @@ public class Kart{
     public void endScreen(){
 	System.out.println("game over");
     }
-
+    
     public Customer nextCustomer(){
 	return customers.remove();
     }
 
     public void makeBurger(){
-	System.out.print("\n1: lettuce\n2: tomato\n3: pickle\n4: ketchup\n5: cucumber\n6: mustard\n7: cheese\n8: onion\n9: mushroom\n10: patty\n11: patty\n12: done")
-	action = Keyboard.readInt()
+	System.out.print("\n1: lettuce\n2: tomato\n3: pickle\n4: ketchup\n5: cucumber\n6: mustard\n7: cheese\n8: onion\n9: mushroom\n10: pepper\n11: patty\n12: done");
+	int action; 
+	
 	while (true){ 
+	    System.out.print("\nBurger in process: "); 
+	    System.out.print(userBurger); 
+	    System.out.println("\n");
+	    System.out.println("What should be added next? ");
+	    action = Keyboard.readInt();
 	    if (action == 12){
 		userBurger.add("top bun"); 
 		return; 
@@ -65,15 +72,25 @@ public class Kart{
 		userBurger.add("cheese"); 
 	    }
 	    else if (action == 8){ 
-		userBurger.add(""); 
+		userBurger.add("onion"); 
+	    }
+	    else if (action == 9){ 
+		userBurger.add("mushroom"); 
+	    }
+	    else if (action == 10){ 
+		userBurger.add("pepper"); 
+	    }
+	    else if (action == 11){
+		userBurger.add("patty");
 	    }
 	}
+    }
 	    
 
-    public void tossOrders(){
-	userBurger = new Hamburger();
-    
+    public void tossOrder(){
+	userBurger = new Hamburger(); 
     }
+
     public boolean compareOrders(Hamburger other){
 	Customer current = customers.peek();
 	if (other.size() == current.getOrder().size()){
@@ -91,11 +108,24 @@ public class Kart{
 
     public static void main (String[] args){
 	Kart tina = new Kart(); 
+	Customer next; 
+	boolean correct = true; 
 	tina.startLevel(); 
 	while (!tina.getCustomers().isEmpty()){
-	    System.out.println("This is your order..."); 
-	    System.out.println(tina.nextCustomer()); 
-	    tina.makeBurger(); 
+	    tina.tossOrder(); 
+	    if (correct){
+		System.out.println("This is your order..."); 
+		System.out.println(next); 
+		tina.makeBurger(); 
+		correct = tina.compareOrders(next.getOrder()); 
+	    }
+	    else{
+		System.out.println("You done goofed!"); 
+		System.out.println("This is your order..."); 
+		System.out.println(next); 
+		tina.makeBurger(); 
+		correct = tina.compareOrders(next.getOrder()); 
+	    }
 	}
     }
 }

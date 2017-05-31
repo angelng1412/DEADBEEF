@@ -9,7 +9,7 @@ public class Hamburger{
     //constructor
     public Hamburger(){
 	_order = new Stack();
-	_order.add("bottom bun"); 
+	_order.push("bottom bun"); 
     }
 
     //accessor for _order
@@ -19,11 +19,16 @@ public class Hamburger{
 
     //generates a random order
     public void randomOrder(){
-	for (int x = 0; x < (int)(Math.random() * 8) + 2; x++){
+	for (int x = 0; x < (int)(Math.random() * 3) + 2; x++){
 	    _order.add(_ingredients[(int)(Math.random() * 11)]);
 	    _size++;
 	}
 	_order.add("top bun"); 
+    }
+
+    //add to stack 
+    public void add(String ingredient){ 
+	_order.push(ingredient);
     }
 
     //accesor for _size
