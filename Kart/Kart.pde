@@ -6,6 +6,7 @@ PriorityQueue<Customer> customers;
 Hamburger userBurger;
 int timeForLevel;
 boolean gameStart;
+Customer cus1, cus2, cus3, cus4;
 
 PImage lettuce;
 PImage cheese;
@@ -33,7 +34,11 @@ void setup() {
   pickle = loadImage("pickle.PNG");
   tomato = loadImage("tomato.PNG");
   cucumber = loadImage("cucumber.PNG");
+  customers = new PriorityQueue();
   counter = createShape(RECT, 0, 0, 500, 100);
+  for (int i = 0; i < 2; i++) {
+    customers.add(new Customer(i));
+  }
 }
 
 void draw() {
@@ -50,10 +55,45 @@ void draw() {
   image(tomato, 900, 400, width/11, height/5);
   image(cucumber, 1000, 400, width/11, height/5);
   shape(counter, 300, 300);
+  assignCustomer();
+  drawCustomer();
 }
 
-void mouseClicked() {
-  if (mouseX > 0 && mouseX < 100 && mouseY > 400 && mouseY < 500) {
+void assignCustomer() {
+  while (customers.peek() != null && 
+    (cus1 == null || cus2 == null || cus3 == null || cus4 == null)) {
+    if (cus1 == null) {
+      cus1 = customers.poll();
+      cus1.setX(10);
+      cus1.setY(100);
+    } else if (cus2 == null) {
+      cus2 = customers.poll();
+      cus2.setX(110);
+      cus2.setY(100);
+    } else if (cus3 == null) {
+      cus3 = customers.poll();
+      cus3.setX(210);
+      cus3.setY(100);
+    } else if (cus4 == null) {
+      cus4 = customers.poll();
+      cus4.setX(310);
+      cus4.setY(100);
+    }
+  }
+}
+
+void drawCustomer() {
+  if (cus1 != null) {
+    ellipse(cus1.getX(), cus1.getY(), 5, 5);
+  }  
+  if (cus2 != null) {
+    ellipse(cus2.getX(), cus2.getY(), 5, 5);
+  }  
+  if (cus3 != null) {
+    ellipse(cus3.getX(), cus3.getY(), 5, 5);
+  }  
+  if (cus4 != null) {
+    ellipse(cus4.getX(), cus4.getY(), 5, 5);
   }
 }
 
