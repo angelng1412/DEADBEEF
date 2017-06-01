@@ -36,6 +36,8 @@ void setup() {
   tomato = loadImage("tomato.PNG");
   cucumber = loadImage("cucumber.PNG");
   person = loadImage("customer.PNG");
+  
+  timeForLevel = (minute() + 1) % 60;
   customers = new PriorityQueue();
   counter = createShape(RECT, 0, 0, 500, 100);
   for (int i = 0; i < 5; i++) {
@@ -44,6 +46,8 @@ void setup() {
 }
 
 void draw() {
+  int m = minute();
+  int s = second();
   background(#DCEA45);
   image(lettuce, 0, 400, width/11, height/5);
   image(cheese, 100, 400, width/11, height/5);
@@ -59,6 +63,10 @@ void draw() {
   shape(counter, 300, 300);
   assignCustomer();
   drawCustomer();
+  if (timeForLevel == m){
+   endScreen();
+   exit();
+  }
 }
 
 void assignCustomer() {
@@ -82,6 +90,10 @@ void assignCustomer() {
       cus4.setY(50);
     }
   }
+}
+
+void mouseClicked(){
+ cus1 = null;
 }
 
 void drawCustomer() {
@@ -124,7 +136,7 @@ void endScreen() {
 
 //removes current customer and brings in next customer
 Customer nextCustomer() {
-  customers.remove();
+  customers.poll();
   return customers.peek();
 }
 
