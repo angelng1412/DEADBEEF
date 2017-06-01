@@ -105,3 +105,16 @@ Angel :: added makeBurger() method in driver
 Tina :: worked on adding user interactions with creating the burger
 ==============================================================
 
+2017-05-31
+--------------------------------------------------------------
+Adrian :: worked on showing customers in processing
+Angel :: continued with command line interactions in driver
+Tina :: worked on showing in ingredients on the counter on processing
+==============================================================
+
+2017-06-01
+--------------------------------------------------------------
+Adrian :: worked on showing customers in processing
+Angel :: continued with command line interactions in driver
+Tina :: worked on processing
+==============================================================
