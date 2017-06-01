@@ -19,6 +19,7 @@ PImage pepper;
 PImage pickle;
 PImage tomato;
 PImage cucumber;
+PImage person;
 PShape counter;
 
 void setup() {
@@ -34,9 +35,10 @@ void setup() {
   pickle = loadImage("pickle.PNG");
   tomato = loadImage("tomato.PNG");
   cucumber = loadImage("cucumber.PNG");
+  person = loadImage("customer.PNG");
   customers = new PriorityQueue();
   counter = createShape(RECT, 0, 0, 500, 100);
-  for (int i = 0; i < 2; i++) {
+  for (int i = 0; i < 5; i++) {
     customers.add(new Customer(i));
   }
 }
@@ -64,36 +66,36 @@ void assignCustomer() {
     (cus1 == null || cus2 == null || cus3 == null || cus4 == null)) {
     if (cus1 == null) {
       cus1 = customers.poll();
-      cus1.setX(10);
-      cus1.setY(100);
+      cus1.setX(150);
+      cus1.setY(50);
     } else if (cus2 == null) {
       cus2 = customers.poll();
-      cus2.setX(110);
-      cus2.setY(100);
+      cus2.setX(350);
+      cus2.setY(50);
     } else if (cus3 == null) {
       cus3 = customers.poll();
-      cus3.setX(210);
-      cus3.setY(100);
+      cus3.setX(550);
+      cus3.setY(50);
     } else if (cus4 == null) {
       cus4 = customers.poll();
-      cus4.setX(310);
-      cus4.setY(100);
+      cus4.setX(750);
+      cus4.setY(50);
     }
   }
 }
 
 void drawCustomer() {
   if (cus1 != null) {
-    ellipse(cus1.getX(), cus1.getY(), 5, 5);
+    image(person, cus1.getX(), cus1.getY(), 200, 200);
   }  
   if (cus2 != null) {
-    ellipse(cus2.getX(), cus2.getY(), 5, 5);
+    image(person, cus2.getX(), cus2.getY(), 200, 200);
   }  
   if (cus3 != null) {
-    ellipse(cus3.getX(), cus3.getY(), 5, 5);
+    image(person, cus3.getX(), cus3.getY(), 200, 200);
   }  
   if (cus4 != null) {
-    ellipse(cus4.getX(), cus4.getY(), 5, 5);
+    image(person, cus4.getX(), cus4.getY(), 200, 200);
   }
 }
 
