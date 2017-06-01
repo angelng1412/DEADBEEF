@@ -6,6 +6,7 @@ import cs1.Keyboard;
 public class Kart{
     
     private PriorityQueue<Customer> customers;
+    private Stack<Customer> garbo; 
     private Hamburger userBurger;
     private int timeForLevel;
     private boolean gameStart;
@@ -14,9 +15,14 @@ public class Kart{
 	return customers; 
     }
     
+    public Stack getGarbo(){
+	return garbo; 
+    }
+    
     //starts the level 
     public void startLevel(){
 	customers = new PriorityQueue(); 
+	garbo = new Stack(); 
 	int x = 5; 
 	while (x > 0){
 	    customers.add(new Customer((int)(Math.random()*5))); 
@@ -36,21 +42,25 @@ public class Kart{
 	return customers.remove();
     }
 
+    public Customer lastCustomer(){
+	return garbo.pop(); 
+    }
+
+    public void process(Customer cust){
+	garbo.push(cust);
+    }
+
     public void makeBurger(){
-	System.out.print("\n1: lettuce\n2: tomato\n3: pickle\n4: ketchup\n5: cucumber\n6: mustard\n7: cheese\n8: onion\n9: mushroom\n10: pepper\n11: patty\n12: done");
+	System.out.print("INGREDIENTS:\n1: lettuce\t2: tomato\t3: pickle\t4: ketchup\t5: cucumber\t6: mustard\n7: cheese\t8: onion\t9: mushroom\t10: pepper\t11: patty\t12: top bun");
 	int action; 
 	
 	while (true){ 
 	    System.out.print("\nBurger in process: "); 
 	    System.out.print(userBurger); 
 	    System.out.println("\n");
-	    System.out.println("What should be added next? ");
+	    System.out.print("What should be added next? ");
 	    action = Keyboard.readInt();
-	    if (action == 12){
-		userBurger.add("top bun"); 
-		return; 
-	    }
-	    else if (action == 1){ 
+	    if (action == 1){ 
 		userBurger.add("lettuce"); 
 	    }
 	    else if (action == 2){ 
@@ -83,6 +93,11 @@ public class Kart{
 	    else if (action == 11){
 		userBurger.add("patty");
 	    }
+	    else if (action == 12){
+		userBurger.add("top bun"); 
+		return; 
+	    }
+
 	}
     }
 	    
@@ -112,20 +127,24 @@ public class Kart{
 	boolean correct = true; 
 	tina.startLevel(); 
 	while (!tina.getCustomers().isEmpty()){
+	    System.out.println("Garbo: " + tina.getGarbo() + "\n"); 
 	    tina.tossOrder(); 
 	    if (correct){
+		next = tina.nextCustomer(); 
+		tina.process(next); 
 		System.out.println("This is your order..."); 
 		System.out.println(next); 
 		tina.makeBurger(); 
 		correct = tina.compareOrders(next.getOrder()); 
 	    }
 	    else{
+		next = tina.lastCustomer(); 
 		System.out.println("You done goofed!"); 
 		System.out.println("This is your order..."); 
 		System.out.println(next); 
 		tina.makeBurger(); 
 		correct = tina.compareOrders(next.getOrder()); 
-	    }
+		}
 	}
     }
 }
