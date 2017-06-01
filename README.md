@@ -11,6 +11,7 @@ When you start up processing, you see a screen with ingredients at the bottom an
 Launch Instructions
 
 cd Kart
+
 processing Kart.pde
 
 press play
