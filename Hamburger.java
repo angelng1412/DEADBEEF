@@ -20,10 +20,10 @@ public class Hamburger{
     //generates a random order
     public void randomOrder(){
 	for (int x = 0; x < (int)(Math.random() * 3) + 2; x++){
-	    _order.add(_ingredients[(int)(Math.random() * 11)]);
+	    _order.push(_ingredients[(int)(Math.random() * 11)]);
 	    _size++;
 	}
-	_order.add("top bun"); 
+	_order.push("top bun"); 
     }
 
     //add to stack 

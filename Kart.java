@@ -106,10 +106,21 @@ public class Kart{
 	userBurger = new Hamburger(); 
     }
 
-    public boolean compareOrders(Hamburger other){
+    public boolean compareOrders(Hamburger order){
+	if (userBurger.size() == order.size()){
+	    while (order.size() != 0){
+		if (!userBurger.getOrder().pop().equals(order.getOrder().pop())){
+		    return false; 
+		}
+	    }
+	    return true; 
+	}
+	return false; 
+		    
+	/*
 	Customer current = customers.peek();
 	if (other.size() == current.getOrder().size()){
-	    for (int x = 0; x < other.size(); x++){
+	    while (other.size() != 0){
 		if (other.getOrder().pop().equals(current.getOrder().getOrder().pop())){  	    
 		}
 		else{
@@ -119,6 +130,7 @@ public class Kart{
 	    }
 	}
 	return false;
+	*/
     }
 
     public static void main (String[] args){
@@ -126,10 +138,11 @@ public class Kart{
 	Customer next; 
 	boolean correct = true; 
 	tina.startLevel(); 
+
 	while (!tina.getCustomers().isEmpty()){
 	    System.out.println("Garbo: " + tina.getGarbo() + "\n"); 
-	    tina.tossOrder(); 
 	    if (correct){
+		tina.tossOrder(); 
 		next = tina.nextCustomer(); 
 		tina.process(next); 
 		System.out.println("This is your order..."); 
@@ -138,13 +151,14 @@ public class Kart{
 		correct = tina.compareOrders(next.getOrder()); 
 	    }
 	    else{
+		tina.tossOrder(); 
 		next = tina.lastCustomer(); 
 		System.out.println("You done goofed!"); 
 		System.out.println("This is your order..."); 
 		System.out.println(next); 
 		tina.makeBurger(); 
 		correct = tina.compareOrders(next.getOrder()); 
-		}
+	    }
 	}
     }
 }
