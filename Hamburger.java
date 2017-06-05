@@ -4,7 +4,7 @@ public class Hamburger{
 
     private final String[] _ingredients = {"lettuce", "tomato", "pickle", "ketchup", "cucumber", "mustard", "cheese", "onion", "mushroom", "patty", "pepper"};
     private Stack<String> _order;
-    private int _size;
+    private int _size; 
 
     //constructor
     public Hamburger(){
@@ -15,6 +15,10 @@ public class Hamburger{
     //accessor for _order
     public Stack<String> getOrder(){
 	return _order; 
+    }
+
+    public int size(){
+	return _size; 
     }
 
     //generates a random order
@@ -30,11 +34,6 @@ public class Hamburger{
     public void add(String ingredient){ 
 	_order.push(ingredient);
     }
-
-    //accesor for _size
-    public int size(){
-	return _size;
-    }    
 
     //compares burgers
     public boolean isEqual(Hamburger other){

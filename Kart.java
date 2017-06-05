@@ -107,30 +107,7 @@ public class Kart{
     }
 
     public boolean compareOrders(Hamburger order){
-	if (userBurger.size() == order.size()){
-	    while (order.size() != 0){
-		if (!userBurger.getOrder().pop().equals(order.getOrder().pop())){
-		    return false; 
-		}
-	    }
-	    return true; 
-	}
-	return false; 
-		    
-	/*
-	Customer current = customers.peek();
-	if (other.size() == current.getOrder().size()){
-	    while (other.size() != 0){
-		if (other.getOrder().pop().equals(current.getOrder().getOrder().pop())){  	    
-		}
-		else{
-		    return false;
-		}
-		return true;
-	    }
-	}
-	return false;
-	*/
+	return userBurger.isEqual(order); 
     }
 
     public static void main (String[] args){
@@ -148,11 +125,13 @@ public class Kart{
 		System.out.println("This is your order..."); 
 		System.out.println(next); 
 		tina.makeBurger(); 
-		correct = tina.compareOrders(next.getOrder()); 
+		correct = tina.compareOrders(next.getOrder());
+		System.out.println(correct);  
 	    }
 	    else{
 		tina.tossOrder(); 
 		next = tina.lastCustomer(); 
+		tina.process(next); 
 		System.out.println("You done goofed!"); 
 		System.out.println("This is your order..."); 
 		System.out.println(next); 
