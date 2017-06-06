@@ -59,12 +59,16 @@ void draw() {
   image(tomato, 900, 400, width/11, height/5);
   image(cucumber, 1000, 400, width/11, height/5);
   shape(counter, 300, 300);
+  
+  fill(#1062E3);
+  rect(50, 200, 100, 100, 10);
+  
   assignCustomer();
-  System.out.println(cus);
+  //System.out.println(cus);
   if (cus != null){
   drawCustomer();
   }
-  if (timeForLevel == m) {
+  if (timeForLevel == m || cus == null) {
     endScreen();
     exit();
   }
@@ -79,7 +83,18 @@ void assignCustomer() {
 }
 
 void mouseClicked() {
-  cus = null;
+  overButton(50, 200, 100, 100);
+}
+
+void overButton(int xcor, int ycor, int width, int height){
+  if (mouseX > xcor && mouseX < xcor + width && mouseY > ycor && mouseY < ycor + height){
+    if (userBurger.isEqual(cus.getOrder())){
+      cus = null;
+    }
+    else{
+      tossOrders();
+    }
+  }
 }
 
 void drawCustomer() {
