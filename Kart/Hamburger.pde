@@ -2,14 +2,14 @@ import java.util.*;
 
 class Hamburger {
 
-  final String[] _ingredients = {"lettuce", "tomato", "pickle", "ketchup", "cucumber", "mustard", "cheese", "onion", "mushroom", "patty", "pepper"};
+  final String[] _ingredients = {"lettuce.PNG", "tomato.PNG", "pickle.PNG", "ketchup.PNG", "cucumber.PNG", "mustard.PNG", "cheese.PNG", "onion.PNG", "mushroom.PNG", "patty.PNG", "pepper.PNG"};
   Stack<String> _order;
   int _size;
 
   //constructor
   Hamburger() {
     _order = new Stack();
-    _order.add("bottom bun");
+    _order.add("bottom_bun.PNG");
   }
 
   //accessor for _order
@@ -23,7 +23,7 @@ class Hamburger {
       _order.add(_ingredients[(int)(Math.random() * 11)]);
       _size++;
     }
-    _order.add("top bun");
+    _order.add("top_bun.PNG");
   }
 
   //accesor for _size
@@ -43,13 +43,5 @@ class Hamburger {
       }
       return true;
     }
-  }
-
-  String toString() {
-    String retstr = "";
-    for (int x = 0; x < _order.size(); x++) {
-      retstr += _order.get(x) + " ";
-    }
-    return retstr;
   }
 }

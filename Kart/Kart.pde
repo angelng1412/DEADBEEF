@@ -35,7 +35,7 @@ void setup() {
   pickle = loadImage("pickle.PNG");
   tomato = loadImage("tomato.PNG");
   cucumber = loadImage("cucumber.PNG");
-  person = loadImage("customer.PNG");
+  person = loadImage("customer1.PNG");
   counter = createShape(RECT, 0, 0, 500, 100);
 
   timeForLevel = (minute() + 3) % 60;
@@ -59,14 +59,14 @@ void draw() {
   image(tomato, 900, 400, width/11, height/5);
   image(cucumber, 1000, 400, width/11, height/5);
   shape(counter, 300, 300);
-  
+
   fill(#1062E3);
   rect(50, 200, 100, 100, 10);
-  
+
   assignCustomer();
-  //System.out.println(cus);
-  if (cus != null){
-  drawCustomer();
+  if (cus != null) {
+    drawCustomer();
+    displayBurger(cus.getOrder(), cus.getX() - 50, cus.getY() + 10, width/11, height/5);
   }
   if (timeForLevel == m || cus == null) {
     endScreen();
@@ -83,22 +83,30 @@ void assignCustomer() {
 }
 
 void mouseClicked() {
-  overButton(50, 200, 100, 100);
-}
-
-void overButton(int xcor, int ycor, int width, int height){
-  if (mouseX > xcor && mouseX < xcor + width && mouseY > ycor && mouseY < ycor + height){
-    if (userBurger.isEqual(cus.getOrder())){
+  if (overButton(50, 200, 100, 100)) {
+    if (userBurger.isEqual(cus.getOrder())) {
       cus = null;
-    }
-    else{
+    } else {
       tossOrders();
     }
   }
 }
 
+ void displayBurger(Hamburger burger, int x, int y, int widthOfImage, int heightOfImage) {
+    for (int i = burger.size(); i > 0; i--) {
+      image(loadImage(burger.getOrder().get(i)), x, y + (i*15), widthOfImage, heightOfImage);
+    }
+  }
+
+boolean overButton(int xcor, int ycor, int width, int height) {
+  if (mouseX > xcor && mouseX < xcor + width && mouseY > ycor && mouseY < ycor + height) {
+    return true;
+  }
+  return false;
+}
+
 void drawCustomer() {
-    image(person, cus.getX(), cus.getY(), 200, 200);
+  image(person, cus.getX(), cus.getY(), 200, 200);
 }
 
 //starts the level by creating customers
@@ -121,20 +129,4 @@ void endScreen() {
 //if you mess up 
 void tossOrders() {
   userBurger = new Hamburger();
-}
-
-//checks to see if your burger matches customer's needs
-boolean compareOrders(Hamburger other) {
-  int x = 0;
-  Customer current = customers.peek();
-  if (other.size() == current.getOrder().size()) {
-    while (x < other.size()) {
-      if (other.getOrder().pop().equals(current.getOrder().getOrder().pop())) {
-      } else {
-        return false;
-      }
-      x++;
-    }
-  }
-  return false;
 }
