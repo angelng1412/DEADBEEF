@@ -118,3 +118,8 @@ Adrian :: worked on showing customers in processing
 Angel :: continued with command line interactions in driver
 Tina :: worked on processing
 ==============================================================
+
+2017-06-05
+--------------------------------------------------------------
+Adrian :: fixed switching from customer to customer
+==============================================================
