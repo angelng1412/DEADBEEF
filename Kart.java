@@ -23,6 +23,7 @@ public class Kart{
     public void startLevel(int level){
 	customers = new PriorityQueue(); 
 	garbo = new Stack(); 
+	gameStart = true; 
 	int x = level*2; 
 	while (x > 0){
 	    customers.add(new Customer((int)(Math.random()*7))); 
@@ -108,39 +109,46 @@ public class Kart{
 	return userBurger.isEqual(order); 
     }
 
-    public static void main (String[] args){
-	Kart tina = new Kart(); 
-	Customer next;
-	int level; 
-	boolean correct = true;
-	System.out.println("Welcome to your Burger Kart!");
-	System.out.print("Select your level(1-5): ");
-	level = Keyboard.readInt(); 
-	tina.startLevel(level);
-	while (!tina.getCustomers().isEmpty()){
-	    System.out.println(tina.nextCustomer());
-	}
-
-	/*while (!tina.getCustomers().isEmpty()){
-	    System.out.println("Garbo: " + tina.getGarbo() + "\n"); 
+    public void play(){
+	Customer next; 
+	boolean correct = true; 
+	while (!getCustomers().isEmpty()){
+	    System.out.println("Garbo: " + getGarbo() + "\n"); 
 	    if (correct){
-		tina.clearOrder(); 
-		next = tina.nextCustomer(); 
-		tina.process(next); 
+		clearOrder(); 
+		next = nextCustomer(); 
+		process(next); 
 		System.out.println("This is your order..."); 
 		System.out.println(next); 
-		tina.makeBurger(); 
-		correct = tina.compareOrders(next.getOrder());
+		makeBurger(); 
+		correct = compareOrders(next.getOrder());
 	    }
 	    else{
-		tina.clearOrder(); 
-		next = tina.lastCustomer(); 
-		tina.process(next); 
+		clearOrder(); 
+		next = lastCustomer(); 
+		process(next); 
 		System.out.println("You done goofed!"); 
 		System.out.println("This is your order..."); 
 		System.out.println(next); 
-		tina.makeBurger(); 
+		makeBurger(); 
+		correct = compareOrders(next.getOrder());
 	    }
-	    }*/
+	}
+    }
+
+    public static void main (String[] args){
+	Kart tina = new Kart(); 
+	int level; 
+	System.out.println("Welcome to your Burger Kart!");
+	while (true){ 
+	    System.out.print("Select your level(1-5): ");
+	    level = Keyboard.readInt(); 
+	    tina.startLevel(level);
+	    tina.play();
+	    System.out.print("Would you like to continue(1: yes 2: no)? "); 
+	    if (Keyboard.readInt() == 2){
+		return; 
+	    }
+	}
     }
 }
