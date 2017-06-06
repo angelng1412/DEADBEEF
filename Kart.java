@@ -20,20 +20,18 @@ public class Kart{
     }
     
     //starts the level 
-    public void startLevel(){
+    public void startLevel(int level){
 	customers = new PriorityQueue(); 
 	garbo = new Stack(); 
-	int x = 5; 
+	int x = level*2; 
 	while (x > 0){
-	    customers.add(new Customer((int)(Math.random()*5))); 
+	    customers.add(new Customer((int)(Math.random()*7))); 
 	    x--; 
 	}
-	
 	userBurger = new Hamburger(); 
 	gameStart = true; 
     }
        
-
     public void endScreen(){
 	System.out.println("game over");
     }
@@ -102,7 +100,7 @@ public class Kart{
     }
 	    
 
-    public void tossOrder(){
+    public void clearOrder(){
 	userBurger = new Hamburger(); 
     }
 
@@ -112,32 +110,37 @@ public class Kart{
 
     public static void main (String[] args){
 	Kart tina = new Kart(); 
-	Customer next; 
-	boolean correct = true; 
-	tina.startLevel(); 
-
+	Customer next;
+	int level; 
+	boolean correct = true;
+	System.out.println("Welcome to your Burger Kart!");
+	System.out.print("Select your level(1-5): ");
+	level = Keyboard.readInt(); 
+	tina.startLevel(level);
 	while (!tina.getCustomers().isEmpty()){
+	    System.out.println(tina.nextCustomer());
+	}
+
+	/*while (!tina.getCustomers().isEmpty()){
 	    System.out.println("Garbo: " + tina.getGarbo() + "\n"); 
 	    if (correct){
-		tina.tossOrder(); 
+		tina.clearOrder(); 
 		next = tina.nextCustomer(); 
 		tina.process(next); 
 		System.out.println("This is your order..."); 
 		System.out.println(next); 
 		tina.makeBurger(); 
 		correct = tina.compareOrders(next.getOrder());
-		System.out.println(correct);  
 	    }
 	    else{
-		tina.tossOrder(); 
+		tina.clearOrder(); 
 		next = tina.lastCustomer(); 
 		tina.process(next); 
 		System.out.println("You done goofed!"); 
 		System.out.println("This is your order..."); 
 		System.out.println(next); 
 		tina.makeBurger(); 
-		correct = tina.compareOrders(next.getOrder()); 
 	    }
-	}
+	    }*/
     }
 }
