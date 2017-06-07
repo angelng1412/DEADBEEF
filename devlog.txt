@@ -7,11 +7,6 @@ pd 5
 Hamburger Kart
 
 
-Suggested usage: 
-* Replace all fields, angle brackets included, with specified info.
-  eg, pd <pd#> --> pd 3
-* Delete these instructions once all teammates understand usage.
-
 devlog--
 Use keyboard shortcut to jump to end,
  replicate entry template,
@@ -29,23 +24,36 @@ OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow we so BOSS bc...
 
+We learned how to use processing throughout our journey of this project. It was very confusing at first. For example, we encountered a problem where we got the ingredients to show on the counter, but they would disappear 1 second later. Slowly, we got the gist of processing.
+
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 blah blah pesky bug...
 maybe some of these will move into the Obs.Ovrcm section...
 
+When you click on the ingredients on the bottom, the images don’t pop up very fast and the program is a little bit laggy.
+
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow! oo!...
+
+We learned how to make a button in processing, new functions like mouseClicked and how to load images onto processing.
+
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 we changed ___ to ___ bc...
 
+Instead of having four customers at a time, we changed it to having one customer at a time for simplicity.
+Instead of having the user dragged the burger to the customer, we created a button when you are done making your burger because we thought it would be easier for the user.
+
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tales of wisdom gained...
 ||||||||||||||||||||||||||||||||||||||||||
+
+Pace out your time. 
+Pull before you push.
 
 
 
@@ -58,13 +66,6 @@ tales of wisdom gained...
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
 ==============================================================
 
-
-yyyy-mm-dd
---------------------------------------------------------------
-<Member> :: <Thing member did.>
-<Member> :: <Thing member did.>
-<Member> :: <Thing member did.>
-==============================================================
 
 2017-05-18
 --------------------------------------------------------------
@@ -117,7 +118,7 @@ Tina :: worked on showing in ingredients on the counter on processing
 --------------------------------------------------------------
 Adrian :: worked on showing customers in processing
 Angel :: worked on comparing user's burger to customer's order
-Tina :: worked on processing
+Tina :: worked on processing kart.pde
 ==============================================================
 
 2017-06-02
@@ -129,11 +130,12 @@ Angel :: debug method for comparison
 --------------------------------------------------------------
 Adrian :: fixed switching from customer to customer
 Angel :: allow selection of levels and continuous play after completion of a level, customer images
+Tina :: worked on adding ingredients to counter
 ==============================================================
 
 2017-06-06
 --------------------------------------------------------------
-Adrian :: 
+Adrian :: added comments, worked on adding ingredients to the counter, showing the customers orders
 Angel :: customer image varies
-Tina :: 
+Tina :: updated devlog, added comments, worked on adding a timer 
 ==============================================================
