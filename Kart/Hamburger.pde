@@ -25,6 +25,7 @@ class Hamburger {
     }
   }
 
+  //add ingredient to the order
   void add(String newStr){
     _order.add(newStr);
     _size++;

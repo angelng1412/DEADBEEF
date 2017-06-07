@@ -4,24 +4,29 @@ class Customer implements Comparable {
   int x, y;
 
   //constructor
+  //assigns random priority
   Customer(int priority) {
     _order = new Hamburger();
     _order.randomOrder(); 
     _priority = priority;
   }
 
+  //accessor for xcor
   int getX() {
     return x;
   }
 
+  //mutator for x
   void setX(int newX) {
     x = newX;
   }
 
+  //accessor for y
   int getY() {
     return y;
   }
 
+  //mutator for y
   void setY(int newY) {
     y = newY;
   }
