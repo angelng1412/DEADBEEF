@@ -11,14 +11,14 @@ Customer cus;
 PImage lettuce;
 PImage cheese;
 PImage ketchup;
-PImage mushroom;
 PImage mustard;
+PImage mushroom; 
 PImage onion;
 PImage patty;
 PImage pepper;
 PImage pickle;
 PImage tomato;
-PImage cucumber;
+PImage bacon;
 PImage person;
 PShape counter;
 
@@ -27,14 +27,14 @@ void setup() {
   lettuce = loadImage("lettuce.PNG");
   cheese = loadImage("cheese.PNG");
   ketchup = loadImage("ketchup.PNG");
-  mushroom = loadImage("mushroom.PNG");
   mustard = loadImage("mustard.PNG");
+  mushroom = loadImage("mushroom.PNG");
   onion = loadImage("onion.PNG");
   patty = loadImage("patty.PNG");
   pepper = loadImage("pepper.PNG");
   pickle = loadImage("pickle.PNG");
   tomato = loadImage("tomato.PNG");
-  cucumber = loadImage("cucumber.PNG");
+  bacon = loadImage("bacon.PNG");
   
   int customer = (int)(Math.random() * 3); 
   if (customer == 0){
