@@ -25,6 +25,7 @@ PShape counter;
 
 
 void setup() {
+  //setting up size and pictures
   size(1100, 500);
   lettuce = loadImage("lettuce.PNG");
   cheese = loadImage("cheese.PNG");
@@ -38,31 +39,50 @@ void setup() {
   tomato = loadImage("tomato.PNG");
   bacon = loadImage("bacon.PNG");
   //bg = loadImage("background.PNG"); 
-  
-  int customer = (int)(Math.random() * 3); 
-  if (customer == 0){
-    person = loadImage("customer1.PNG");
-  }
-  else if (customer == 1){
-    person = loadImage("customer2.PNG");
-  }
-  else{
-    person = loadImage("customer3.PNG");
-  }
-  
   counter = createShape(RECT, 0, 0, 500, 100);
 
-  timeForLevel = (minute() + 3) % 60;
+  //deciding what the customer looks like for this iteration of the game
+  int customer = (int)(Math.random() * 3); 
+  if (customer == 0) {
+    person = loadImage("customer1.PNG");
+  } else if (customer == 1) {
+    person = loadImage("customer2.PNG");
+  } else {
+    person = loadImage("customer3.PNG");
+  }
+
+  //other initializing of variables
+  timeForLevel = (minute() + 2) % 60;
   startLevel();
   assignCustomer();
   userBurger = new Hamburger();
 }
 
+//starts the level by creating customers
+void startLevel() {
+  customers = new PriorityQueue(); 
+  int x = 5; 
+  while (x > 0) {
+    customers.add(new Customer((int)(Math.random()*5))); 
+    x--;
+  }
+  userBurger = new Hamburger(); 
+  gameStart = true;
+}
+
+//final screen when the game is over
+void endScreen() {
+  System.out.println("game over");
+}
+
+
 void draw() {
   //background(bg); 
-  
+  //time based variables
   int m = minute();
   int s = second();
+
+  //background, images, and shapes
   background(#DCEA45);
   image(lettuce, 0, 400, width/11, height/5);
   image(cheese, 100, 400, width/11, height/5);
@@ -76,33 +96,31 @@ void draw() {
   image(tomato, 900, 400, width/11, height/5);
   image(bacon, 1000, 400, width/11, height/5);
   shape(counter, 300, 300);
-
   fill(#1062E3);
   rect(50, 200, 100, 100, 10);
 
+  //customer assignment and display
   assignCustomer();
   if (cus != null) {
     drawCustomer();
     displayBurger(cus.getOrder(), cus.getX() + 150, cus.getY() + 10, width/11, height/5);
   }
-  if (userBurger.size() != 0){
+
+  //userBurger display
+  if (userBurger.size() != 0) {
     displayBurger(userBurger, 330, 325, width/11, height/5);
   }
+
+  //decides when and why the game is over
   if (timeForLevel == m || cus == null) {
     endScreen();
     exit();
   }
 }
 
-void assignCustomer() {
-  if (customers.peek() != null && cus == null) {
-    cus = customers.poll();
-    cus.setX(425);
-    cus.setY(50);
-  }
-}
-
+//mouseClicked()
 void mouseClicked() {
+  //if the mouse is inside the blue box, then compare the burgers and decide to either reset the burger and get a new customer or just reset the burger
   if (overButton(50, 200, 100, 100)) {
     if (userBurger.isEqual(cus.getOrder())) {
       cus = null;
@@ -114,20 +132,13 @@ void mouseClicked() {
   addIngredients();
 }
 
- void displayBurger(Hamburger burger, int x, int y, int widthOfImage, int heightOfImage) {
-    for (int i = 0; i < burger.size(); i++) {
-      image(loadImage(burger.getOrder().get(i)), x + (i*50), y, widthOfImage/2, heightOfImage/2);
-    }
-  }
-
-boolean overButton(int xcor, int ycor, int width, int height) {
-  if (mouseX > xcor && mouseX < xcor + width && mouseY > ycor && mouseY < ycor + height) {
-    return true;
-  }
-  return false;
+//if you mess up 
+void tossOrders() {
+  userBurger = new Hamburger();
 }
 
-void addIngredients(){
+//add the ingredients within the images to the userBurger Hamburger class
+void addIngredients() {
   if (overButton(0, 400, width/11, height/5)) {
     userBurger.add("lettuce.PNG");
   }
@@ -163,28 +174,31 @@ void addIngredients(){
   }
 }
 
+//assign customers and give them x and y coordinates
+void assignCustomer() {
+  if (customers.peek() != null && cus == null) {
+    cus = customers.poll();
+    cus.setX(425);
+    cus.setY(50);
+  }
+}
+
+//helper method to create the image of the Hamburger
+void displayBurger(Hamburger burger, int x, int y, int widthOfImage, int heightOfImage) {
+  for (int i = 0; i < burger.size(); i++) {
+    image(loadImage(burger.getOrder().get(i)), x + (i*50), y, widthOfImage/2, heightOfImage/2);
+  }
+}
+
+//display for customer
 void drawCustomer() {
   image(person, cus.getX(), cus.getY(), 200, 200);
 }
 
-//starts the level by creating customers
-void startLevel() {
-  customers = new PriorityQueue(); 
-  int x = 5; 
-  while (x > 0) {
-    customers.add(new Customer((int)(Math.random()*5))); 
-    x--;
+//helper method to find if something is within a certain rectangular area
+boolean overButton(int xcor, int ycor, int width, int height) {
+  if (mouseX > xcor && mouseX < xcor + width && mouseY > ycor && mouseY < ycor + height) {
+    return true;
   }
-  userBurger = new Hamburger(); 
-  gameStart = true;
-}
-
-//final screen when the game is over
-void endScreen() {
-  System.out.println("game over");
-}
-
-//if you mess up 
-void tossOrders() {
-  userBurger = new Hamburger();
+  return false;
 }
