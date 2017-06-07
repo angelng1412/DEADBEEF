@@ -1,6 +1,6 @@
 # DEADBEEF
 
-**Tina Chen, Angel Ng, Adrian Boylan**
+**Tina Chen, Angel Ng, Adrian Boylan**<br>
 **Hamburger Kart**
 
 ### Description
