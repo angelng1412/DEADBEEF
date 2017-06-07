@@ -71,6 +71,7 @@ yyyy-mm-dd
 Adrian :: created devlog.txt
 Angel :: made repo
 Tina :: created plan/20170519.txt
+=============================================================
 
 2017-05-23
 --------------------------------------------------------------
@@ -115,11 +116,24 @@ Tina :: worked on showing in ingredients on the counter on processing
 2017-06-01
 --------------------------------------------------------------
 Adrian :: worked on showing customers in processing
-Angel :: continued with command line interactions in driver
+Angel :: worked on comparing user's burger to customer's order
 Tina :: worked on processing
+==============================================================
+
+2017-06-02
+--------------------------------------------------------------
+Angel :: debug method for comparison 
 ==============================================================
 
 2017-06-05
 --------------------------------------------------------------
 Adrian :: fixed switching from customer to customer
+Angel :: allow selection of levels and continuous play after completion of a level, customer images
+==============================================================
+
+2017-06-06
+--------------------------------------------------------------
+Adrian :: 
+Angel :: customer image varies
+Tina :: 
 ==============================================================
