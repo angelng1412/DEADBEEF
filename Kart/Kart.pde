@@ -85,8 +85,8 @@ void draw() {
     drawCustomer();
     displayBurger(cus.getOrder(), cus.getX() + 150, cus.getY() + 10, width/11, height/5);
   }
-  if (userBurger.size() > 0){
-    displayBurger(userBurger, 320, 305, width/11, height/5);
+  if (userBurger.size() != 0){
+    displayBurger(userBurger, 330, 325, width/11, height/5);
   }
   if (timeForLevel == m || cus == null) {
     endScreen();
@@ -104,9 +104,9 @@ void assignCustomer() {
 
 void mouseClicked() {
   if (overButton(50, 200, 100, 100)) {
-    userBurger.getOrder().add("top_bun.PNG");
     if (userBurger.isEqual(cus.getOrder())) {
       cus = null;
+      tossOrders();
     } else {
       tossOrders();
     }
@@ -115,7 +115,7 @@ void mouseClicked() {
 }
 
  void displayBurger(Hamburger burger, int x, int y, int widthOfImage, int heightOfImage) {
-    for (int i = 1; i < burger.size()-1; i++) {
+    for (int i = 0; i < burger.size(); i++) {
       image(loadImage(burger.getOrder().get(i)), x + (i*50), y, widthOfImage/2, heightOfImage/2);
     }
   }
