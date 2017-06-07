@@ -20,7 +20,9 @@ PImage pickle;
 PImage tomato;
 PImage bacon;
 PImage person;
+//PImage bg; 
 PShape counter;
+
 
 void setup() {
   size(1100, 500);
@@ -35,6 +37,7 @@ void setup() {
   pickle = loadImage("pickle.PNG");
   tomato = loadImage("tomato.PNG");
   bacon = loadImage("bacon.PNG");
+  //bg = loadImage("background.PNG"); 
   
   int customer = (int)(Math.random() * 3); 
   if (customer == 0){
@@ -55,6 +58,8 @@ void setup() {
 }
 
 void draw() {
+  //background(bg); 
+  
   int m = minute();
   int s = second();
   background(#DCEA45);
@@ -68,7 +73,7 @@ void draw() {
   image(pepper, 700, 400, width/11, height/5);
   image(pickle, 800, 400, width/11, height/5);
   image(tomato, 900, 400, width/11, height/5);
-  image(cucumber, 1000, 400, width/11, height/5);
+  image(bacon, 1000, 400, width/11, height/5);
   shape(counter, 300, 300);
 
   fill(#1062E3);

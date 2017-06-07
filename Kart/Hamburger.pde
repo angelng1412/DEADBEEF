@@ -2,7 +2,7 @@ import java.util.*;
 
 class Hamburger {
 
-  final String[] _ingredients = {"lettuce.PNG", "tomato.PNG", "pickle.PNG", "ketchup.PNG", "cucumber.PNG", "mustard.PNG", "cheese.PNG", "onion.PNG", "mushroom.PNG", "patty.PNG", "pepper.PNG"};
+  final String[] _ingredients = {"lettuce.PNG", "tomato.PNG", "pickle.PNG", "ketchup.PNG", "bacon.PNG", "mustard.PNG", "cheese.PNG", "onion.PNG", "mushroom.PNG", "patty.PNG", "pepper.PNG"};
   Stack<String> _order;
   int _size;
 
