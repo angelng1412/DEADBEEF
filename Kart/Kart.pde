@@ -85,8 +85,8 @@ void draw() {
     drawCustomer();
     displayBurger(cus.getOrder(), cus.getX() + 150, cus.getY() + 10, width/11, height/5);
   }
-  if (userBurger.size() > 1){
-    displayBurger(userBurger, 10, 205, width/11, height/5);
+  if (userBurger.size() > 0){
+    displayBurger(userBurger, 320, 305, width/11, height/5);
   }
   if (timeForLevel == m || cus == null) {
     endScreen();
@@ -115,7 +115,7 @@ void mouseClicked() {
 }
 
  void displayBurger(Hamburger burger, int x, int y, int widthOfImage, int heightOfImage) {
-    for (int i = 1; i < burger.size()+1; i++) {
+    for (int i = 1; i < burger.size()-1; i++) {
       image(loadImage(burger.getOrder().get(i)), x + (i*50), y, widthOfImage/2, heightOfImage/2);
     }
   }
@@ -129,37 +129,37 @@ boolean overButton(int xcor, int ycor, int width, int height) {
 
 void addIngredients(){
   if (overButton(0, 400, width/11, height/5)) {
-    userBurger.getOrder().add("lettuce.PNG");
+    userBurger.add("lettuce.PNG");
   }
   if (overButton(100, 400, width/11, height/5)) {
-    userBurger.getOrder().add("cheese.PNG");
+    userBurger.add("cheese.PNG");
   }  
   if (overButton(200, 400, width/11, height/5)) {
-    userBurger.getOrder().add("ketchup.PNG");
+    userBurger.add("ketchup.PNG");
   }  
   if (overButton(300, 400, width/11, height/5)) {
-    userBurger.getOrder().add("mushroom.PNG");
+    userBurger.add("mushroom.PNG");
   }  
   if (overButton(400, 400, width/11, height/5)) {
-    userBurger.getOrder().add("mustard.PNG");
+    userBurger.add("mustard.PNG");
   }  
   if (overButton(500, 400, width/11, height/5)) {
-    userBurger.getOrder().add("onion.PNG");
+    userBurger.add("onion.PNG");
   }  
   if (overButton(600, 400, width/11, height/5)) {
-    userBurger.getOrder().add("patty.PNG");
+    userBurger.add("patty.PNG");
   }  
   if (overButton(700, 400, width/11, height/5)) {
-    userBurger.getOrder().add("pepper.PNG");
+    userBurger.add("pepper.PNG");
   }  
   if (overButton(800, 400, width/11, height/5)) {
-    userBurger.getOrder().add("pickle.PNG");
+    userBurger.add("pickle.PNG");
   }  
   if (overButton(900, 400, width/11, height/5)) {
-    userBurger.getOrder().add("tomato.PNG");
+    userBurger.add("tomato.PNG");
   }  
   if (overButton(1000, 400, width/11, height/5)) {
-    userBurger.getOrder().add("bacon.PNG");
+    userBurger.add("bacon.PNG");
   }
 }
 

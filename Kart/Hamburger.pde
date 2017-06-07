@@ -10,6 +10,7 @@ class Hamburger {
   Hamburger() {
     _order = new Stack();
     _order.add("bottom_bun.PNG");
+    _size = 1;
   }
 
   //accessor for _order
@@ -23,7 +24,12 @@ class Hamburger {
       _order.add(_ingredients[(int)(Math.random() * 11)]);
       _size++;
     }
-    _order.add("top_bun.PNG");
+    add("top_bun.PNG");
+  }
+
+  void add(String newStr){
+    _order.add(newStr);
+    _size++;
   }
 
   //accesor for _size
