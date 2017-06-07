@@ -35,7 +35,18 @@ void setup() {
   pickle = loadImage("pickle.PNG");
   tomato = loadImage("tomato.PNG");
   cucumber = loadImage("cucumber.PNG");
-  person = loadImage("customer1.PNG");
+  
+  int customer = (int)(Math.random() * 3); 
+  if (customer == 0){
+    person = loadImage("customer1.PNG");
+  }
+  else if (customer == 1){
+    person = loadImage("customer2.PNG");
+  }
+  else{
+    person = loadImage("customer3.PNG");
+  }
+  
   counter = createShape(RECT, 0, 0, 500, 100);
 
   timeForLevel = (minute() + 3) % 60;
