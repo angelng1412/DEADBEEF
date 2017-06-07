@@ -32,6 +32,8 @@ blah blah pesky bug...
 maybe some of these will move into the Obs.Ovrcm section...
 
 When you click on the ingredients on the bottom, the images don’t pop up very fast and the program is a little bit laggy.
+The program lacks text output on the screen. We resorted to printing text in the message window instead.
+The user lacks the ability to continue playing within the game. When the game is over (regardless of whether the player won or not), the window is closed and the user must press play again in order to play. 
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
