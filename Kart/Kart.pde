@@ -77,7 +77,7 @@ void draw() {
   assignCustomer();
   if (cus != null) {
     drawCustomer();
-    displayBurger(cus.getOrder(), cus.getX() - 50, cus.getY() + 10, width/11, height/5);
+    displayBurger(cus.getOrder(), cus.getX() + 150, cus.getY() + 10, width/11, height/5);
   }
   if (timeForLevel == m || cus == null) {
     endScreen();
@@ -104,8 +104,8 @@ void mouseClicked() {
 }
 
  void displayBurger(Hamburger burger, int x, int y, int widthOfImage, int heightOfImage) {
-    for (int i = burger.size(); i > 0; i--) {
-      image(loadImage(burger.getOrder().get(i)), x, y + (i*15), widthOfImage, heightOfImage);
+    for (int i = 1; i < burger.size(); i++) {
+      image(loadImage(burger.getOrder().get(i)), x + (i*50), y, widthOfImage/2, heightOfImage/2);
     }
   }
 
