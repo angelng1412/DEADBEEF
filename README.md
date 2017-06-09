@@ -10,6 +10,6 @@ Start up processing, and you see a screen with ingredients at the bottom and a c
 ### Launch Instructions
 
 1. Clone the DEADBEEF repo:  git clone git@github.com:angelng1412/DEADBEEF.git
-2. Navigate into the correct directory:  cd holding-cell/DEADBEEF
+2. Navigate into the correct directory:  cd holding-cell/DEADBEEF/Kart
 3. Open the Kart processing file:  processing Kart.pde
 4. Press Play
